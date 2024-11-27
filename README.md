@@ -11,18 +11,20 @@
 ### Применённые пакеты
 - django
 - djangorestframework
+- psycopg2-binary
+- python-dotenv
+- black
+
+
 - djangorestframework-simplejwt
 - django-filter
 - pillow
-- psycopg2-binary
-- python-dotenv
 - coverage
 - drf-yasg
 - stripe
 - celery
 - django-celery-beat
 - redis
-- black
 
 ### Пользователи, создаваемые командой createusers:
 - admin@sky.pro - Администратор
