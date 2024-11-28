@@ -54,3 +54,11 @@ class Habit(models.Model):
         default=False,
         verbose_name="публичная привычка",
     )
+
+    class Meta:
+        verbose_name = "привычка"
+        verbose_name_plural = "привычки"
+        ordering = ("name",)
+
+    def __str__(self):
+        return self.name
