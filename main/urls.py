@@ -1,17 +1,17 @@
-from django.urls import path
-# from rest_framework.routers import DefaultRouter
+# from django.urls import path
+from rest_framework.routers import DefaultRouter
 
-# from main.views import
 from main.apps import MainConfig
+from main.views import HabitViewSet
 
 
 app_name = MainConfig.name
 
-# router = DefaultRouter()
-# router.register(r"", CourseViewSet, basename="course")
+router = DefaultRouter()
+router.register(r"habits", HabitViewSet, basename="habits")
 
 urlpatterns = [
-    # path("lesson/", LessonListAPIView.as_view(), name="lesson_list"),
+    # path("habits/", HabitListAPIView.as_view(), name="habit_list"),
     # path("lesson/<int:pk>/", LessonRetrieveAPIView.as_view(), name="lesson_retrieve"),
     # path("lesson/create/", LessonCreateAPIView.as_view(), name="lesson_create"),
     # path(
@@ -25,5 +25,4 @@ urlpatterns = [
     #     SubscriptionAPIView.as_view(),
     #     name="subscription",
     # ),
-]
-# + router.urls
+] + router.urls
