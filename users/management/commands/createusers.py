@@ -1,17 +1,18 @@
-from django.contrib.auth.models import Group
 from django.core.management import BaseCommand
 
 from users.models import User
 
 
 class Command(BaseCommand):
-    """Создание пользователей и групп."""
+    """Создание пользователей."""
 
     def handle(self, *args, **kwargs):
 
         # Список пользователей ('эл.адрес', 'название', 'пароль')
         users_list = [
-            ("user@sky.pro", "user", "123"),
+            ("igor@sky.pro", "Igor", "123"),
+            ("ivan@sky.pro", "Ivan", "123"),
+            ("irina@sky.pro", "Irina", "123"),
         ]
 
         # Создание пользователей
