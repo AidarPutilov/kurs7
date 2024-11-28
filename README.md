@@ -11,13 +11,13 @@
 ### Применённые пакеты
 - django
 - djangorestframework
+- djangorestframework-simplejwt
+- django-filter
 - psycopg2-binary
 - python-dotenv
 - black
 
 
-- djangorestframework-simplejwt
-- django-filter
 - pillow
 - coverage
 - drf-yasg
@@ -100,6 +100,9 @@ http://127.0.0.1:8000/redoc/ - Redoc
 
 ### Запросы
 ```
+http://127.0.0.1:8000/users/register/ - Регистрация пользователя
+
+
 http://127.0.0.1:8000/course/ - Список курсов, запрос CREATE
 http://127.0.0.1:8000/course/<pk> - Запросы RETRIEVE, PUT, DELETE
 http://127.0.0.1:8000/course/lesson/ - Список уроков
@@ -113,7 +116,6 @@ http://127.0.0.1:8000/users/payment/list?course=<pk> - Фильтрация по
 http://127.0.0.1:8000/users/payment/list?lesson=<pk> - Фильтрация по уроку
 http://127.0.0.1:8000/users/payment/list?method=cashless - Фильтрация по способу оплаты
 http://127.0.0.1:8000/users/payment/list?ordering=date - Сортировка по дате (-date - в обратном порядке)
-http://127.0.0.1:8000/users/register/ - Регистрация пользователя
 http://127.0.0.1:8000/users/login/ - Получение токена
 http://127.0.0.1:8000/users/list/ - Список пользователей
 http://127.0.0.1:8000/users/view/<pk>/ - Просмотр пользователя
