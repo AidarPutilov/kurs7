@@ -1,14 +1,7 @@
 from rest_framework import viewsets
-# from rest_framework import generics
 
 from main.models import Habit
 from main.serializers import HabitSerializer, HabitDetailSerializer
-
-
-# class HabitListAPIView(generics.ListAPIView):
-#     queryset = Habit.objects.all()
-#     serializer_class = HabitSerializer
-    # pagination_class = CustomPagination
 
 
 class HabitViewSet(viewsets.ModelViewSet):

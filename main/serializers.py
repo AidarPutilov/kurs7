@@ -16,7 +16,6 @@ class HabitSerializer(serializers.ModelSerializer):
             "place",
             "start_time",
             "is_enjoy",
-            "related_habit",
             "period",
             "reward",
             "duration",
