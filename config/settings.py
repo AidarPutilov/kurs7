@@ -9,7 +9,6 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY")
-# SECRET_KEY = "django-insecure-req-@gh2a3veb)c6-$y&z^#pocw4)0y9plyc_izud(&ija$4nv"
 
 DEBUG = os.getenv("DEBUG", False) == "True"
 
@@ -23,7 +22,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    'rest_framework_simplejwt',
+    "rest_framework_simplejwt",
     "users",
 ]
 
@@ -109,6 +108,9 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
+    # "DEFAULT_PERMISSION_CLASSES": [
+    #     "rest_framework.permissions.AllowAny",
+    # ],
 }
 
 EMAIL_HOST = os.getenv("EMAIL_HOST")
