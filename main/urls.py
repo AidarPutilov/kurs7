@@ -8,7 +8,7 @@ from main.views import HabitViewSet
 app_name = MainConfig.name
 
 router = DefaultRouter()
-router.register(r"habits", HabitViewSet, basename="habits")
+router.register(r"", HabitViewSet, basename="habits")
 
 urlpatterns = [
     # path("habits/", HabitListAPIView.as_view(), name="habit_list"),

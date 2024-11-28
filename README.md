@@ -96,20 +96,23 @@ http://127.0.0.1:8000/swagger/ - Swagger
 http://127.0.0.1:8000/redoc/ - Redoc
 ```
 
-### Запросы
+### Запросы User
 ```
 http://127.0.0.1:8000/users/register/ - Регистрация пользователя
-http://127.0.0.1:8000/users/login/ - Получение токена
+http://127.0.0.1:8000/users/login/ - Авторизация, получение токена
 http://127.0.0.1:8000/users/list/ - Список пользователей
 http://127.0.0.1:8000/users/view/<pk>/ - Просмотр пользователя
 http://127.0.0.1:8000/users/update/<pk>/ - Редактирование пользователя
 http://127.0.0.1:8000/users/delete/<pk>/ - Удаление пользователя
-http://127.0.0.1:8000/main/habits/ - Список привычек пользователя
+```
+
+### Запросы Habit
+```
+http://127.0.0.1:8000/main/ - LIST, CREATE
+http://127.0.0.1:8000/main/<pk>/ - RETRIEVE, PUT, DELETE
 
 
 
-http://127.0.0.1:8000/course/ - Список курсов, запрос CREATE
-http://127.0.0.1:8000/course/<pk> - Запросы RETRIEVE, PUT, DELETE
 http://127.0.0.1:8000/course/lesson/ - Список уроков
 http://127.0.0.1:8000/course/lesson/create/ - Создание урока
 http://127.0.0.1:8000/course/lesson/<pk>/update/ - Редактирование урока
