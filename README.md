@@ -108,6 +108,7 @@ http://127.0.0.1:8000/users/update/<pk>/ - Редактирование поль
 http://127.0.0.1:8000/users/delete/<pk>/ - Удаление пользователя
 
 
+
 http://127.0.0.1:8000/course/ - Список курсов, запрос CREATE
 http://127.0.0.1:8000/course/<pk> - Запросы RETRIEVE, PUT, DELETE
 http://127.0.0.1:8000/course/lesson/ - Список уроков
