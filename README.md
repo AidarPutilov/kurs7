@@ -27,7 +27,9 @@
 - redis
 
 ### Пользователи, создаваемые командой createusers:
-- user@sky.pro
+- igor@sky.pro
+- ivan@sky.pro
+- irina@sky.pro
 
 Пароль: 123
 
@@ -110,7 +112,7 @@ http://127.0.0.1:8000/users/delete/<pk>/ - Удаление пользовате
 ```
 http://127.0.0.1:8000/main/ - LIST, CREATE
 http://127.0.0.1:8000/main/<pk>/ - RETRIEVE, PUT, DELETE
-
+http://127.0.0.1:8000/main/public/ - Список публичных записей
 
 
 http://127.0.0.1:8000/course/lesson/ - Список уроков
