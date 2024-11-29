@@ -3,13 +3,14 @@ from rest_framework import generics
 
 from main.models import Habit
 from main.serializers import HabitSerializer, HabitDetailSerializer
+from main.paginations import CustomPagination
 
 
 class HabitViewSet(viewsets.ModelViewSet):
     """ViewSet модели Habit."""
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
-    # pagination_class = CustomPagination
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         """Возвращает объекты пользователя."""
