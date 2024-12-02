@@ -111,21 +111,6 @@ http://127.0.0.1:8000/users/delete/<pk>/ - Удаление пользовате
 ### Запросы Habit
 ```
 http://127.0.0.1:8000/main/ - LIST, CREATE
-http://127.0.0.1:8000/main/<pk>/ - RETRIEVE, PUT, DELETE
+http://127.0.0.1:8000/main/<pk>/ - RETRIEVE, PUT, PATCH, DELETE
 http://127.0.0.1:8000/main/public/ - Список публичных записей
-
-
-http://127.0.0.1:8000/course/lesson/ - Список уроков
-http://127.0.0.1:8000/course/lesson/create/ - Создание урока
-http://127.0.0.1:8000/course/lesson/<pk>/update/ - Редактирование урока
-http://127.0.0.1:8000/course/lesson/<pk>/delete/ - Удаление урока
-http://127.0.0.1:8000/users/payment/list/ - Список платежей
-http://127.0.0.1:8000/users/payment/create/ - Создание платежа
-POST: {"cost": 1000, "method": "cashless", "course": 1}
-http://127.0.0.1:8000/users/payment/list?course=<pk> - Фильтрация по курсу
-http://127.0.0.1:8000/users/payment/list?lesson=<pk> - Фильтрация по уроку
-http://127.0.0.1:8000/users/payment/list?method=cashless - Фильтрация по способу оплаты
-http://127.0.0.1:8000/users/payment/list?ordering=date - Сортировка по дате (-date - в обратном порядке)
-http://127.0.0.1:8000/course/subscription/ - Добаление/удаление подписки
-POST: {"course": 1}
 ```

@@ -4,6 +4,7 @@ from rest_framework import generics
 from main.models import Habit
 from main.serializers import HabitSerializer, HabitDetailSerializer
 from main.paginations import CustomPagination
+from users.permissions import IsOwner
 
 
 class HabitViewSet(viewsets.ModelViewSet):
@@ -28,15 +29,11 @@ class HabitViewSet(viewsets.ModelViewSet):
         course.owner = self.request.user
         course.save()
 
-    # def get_permissions(self):
-    #     """Назначение разрешений."""
-    #     if self.action == "create":
-    #         self.permission_classes = (~IsModer,)
-    #     elif self.action == "destroy":
-    #         self.permission_classes = (~IsModer | IsOwner,)
-    #     elif self.action in ["update", "retrieve"]:
-    #         self.permission_classes = (IsModer | IsOwner,)
-    #     return super().get_permissions()
+    def get_permissions(self):
+        """Назначение разрешений."""
+        if self.action in ("destroy", "update"):
+            self.permission_classes = (IsOwner,)
+        return super().get_permissions()
 
 
 class HabitPublicListAPIView(generics.ListAPIView):

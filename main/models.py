@@ -39,6 +39,7 @@ class Habit(models.Model):
     period = models.PositiveSmallIntegerField(
         verbose_name="периодичность (дни)",
         default=1,
+        # Нельзя выполнять привычку реже, чем 1 раз в 7 дней.
         validators=[MaxValueValidator(7), MinValueValidator(1)],
     )
     reward = models.CharField(
@@ -50,6 +51,7 @@ class Habit(models.Model):
     duration = models.PositiveSmallIntegerField(
         verbose_name="время выполнения (с)",
         default=120,
+        # Время выполнения должно быть не больше 120 секунд.
         validators=[MaxValueValidator(120)],
     )
     is_public = models.BooleanField(

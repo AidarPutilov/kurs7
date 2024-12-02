@@ -1,5 +1,5 @@
 from rest_framework import serializers
-# from materials.validators import validate_youtube_link
+from main.validators import validate_reward_and_habit, validate_related_habit, validate_enjoy_habit
 
 from main.models import Habit
 
@@ -20,7 +20,13 @@ class HabitSerializer(serializers.ModelSerializer):
             "reward",
             "duration",
             "is_public",
+            "related_habit",
         )
+        validators = [
+            validate_reward_and_habit,
+            validate_related_habit,
+            validate_enjoy_habit,
+        ]
 
 
 class HabitDetailSerializer(serializers.ModelSerializer):
