@@ -21,8 +21,7 @@ class Habit(models.Model):
         verbose_name="место выполнения",
     )
     start_time = models.TimeField(
-        auto_now=False,
-        verbose_name="время начала выполнения"
+        auto_now=False, verbose_name="время начала выполнения"
     )
     is_enjoy = models.BooleanField(
         default=False,
@@ -57,6 +56,12 @@ class Habit(models.Model):
     is_public = models.BooleanField(
         default=False,
         verbose_name="публичная привычка",
+    )
+    send_time = models.DateTimeField(
+        auto_now=False,
+        verbose_name="время следующей отправки сообщения в Телеграм",
+        null=True,
+        blank=True,
     )
 
     class Meta:

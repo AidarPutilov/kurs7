@@ -1,5 +1,12 @@
 ## Курсовая работа 7
+- Добавлена модель привычек.
+- Реализованы эндпоинты.
+- Реализованы валидаторы.
+- Реализована пагинация.
+- Реализованы права доступа.
 -
+
+
 - Работа проверена с помощью Postman.
 
 ### Основные приложения
@@ -13,18 +20,19 @@
 - djangorestframework
 - djangorestframework-simplejwt
 - django-filter
+- django-celery-beat
 - psycopg2-binary
 - python-dotenv
+- requests
+- celery
 - black
+- redis
 
 
 - pillow
 - coverage
 - drf-yasg
 - stripe
-- celery
-- django-celery-beat
-- redis
 
 ### Пользователи, создаваемые командой createusers:
 - igor@sky.pro

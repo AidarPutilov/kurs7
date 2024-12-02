@@ -1,5 +1,9 @@
 from rest_framework import serializers
-from main.validators import validate_reward_and_habit, validate_related_habit, validate_enjoy_habit
+from main.validators import (
+    validate_reward_and_habit,
+    validate_related_habit,
+    validate_enjoy_habit,
+)
 
 from main.models import Habit
 
@@ -21,6 +25,7 @@ class HabitSerializer(serializers.ModelSerializer):
             "duration",
             "is_public",
             "related_habit",
+            "send_time",
         )
         validators = [
             validate_reward_and_habit,

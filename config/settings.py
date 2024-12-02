@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 
 import os
@@ -23,6 +24,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "rest_framework_simplejwt",
+    "django_celery_beat",
     "users",
     "main",
 ]
@@ -124,3 +126,21 @@ EMAIL_TEST = os.getenv("EMAIL_TEST", False) == "True"
 
 SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+TELEGRAM_URL = "https://api.telegram.org/bot"
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
+CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL")
+CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+
+CELERY_BEAT_SCHEDULE = {
+    "send_telegram_reminder": {
+        "task": "main.tasks.send_telegram_reminder",
+        "schedule": timedelta(days=1),
+    },
+}

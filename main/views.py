@@ -9,6 +9,7 @@ from users.permissions import IsOwner
 
 class HabitViewSet(viewsets.ModelViewSet):
     """ViewSet модели Habit."""
+
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     pagination_class = CustomPagination
@@ -38,5 +39,6 @@ class HabitViewSet(viewsets.ModelViewSet):
 
 class HabitPublicListAPIView(generics.ListAPIView):
     """APIView LIST для публичных записей Habit."""
+
     queryset = Habit.objects.filter(is_public=True)
     serializer_class = HabitSerializer
