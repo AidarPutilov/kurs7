@@ -5,6 +5,8 @@
 - Реализована пагинация.
 - Реализованы права доступа.
 - Настроена интеграцию с Телеграм.
+- Настоен CORS.
+
 
 
 - Работа проверена с помощью Postman.
@@ -21,6 +23,7 @@
 - djangorestframework-simplejwt
 - django-filter
 - django-celery-beat
+- django-cors-headers
 - psycopg2-binary
 - python-dotenv
 - requests
