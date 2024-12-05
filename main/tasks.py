@@ -28,9 +28,11 @@ def send_telegram_reminder():
                 flag = True
 
             if flag:
-                message = (f"Задание на сегодня: {habit.name},"
-                           f" место: {habit.place},"
-                           f" время: {habit.start_time}")
+                message = (
+                    f"Задание на сегодня: {habit.name},"
+                    f" место: {habit.place},"
+                    f" время: {habit.start_time}"
+                )
 
                 # Указано вознаграждение
                 if habit.reward:
@@ -38,9 +40,11 @@ def send_telegram_reminder():
 
                 # Указана связанная привычка
                 if habit.related_habit:
-                    message += (f"\nЗа выполнение: {habit.related_habit},"
-                                f" место: {habit.related_habit.place},"
-                                f" время: {habit.related_habit.start_time}")
+                    message += (
+                        f"\nЗа выполнение: {habit.related_habit},"
+                        f" место: {habit.related_habit.place},"
+                        f" время: {habit.related_habit.start_time}"
+                    )
 
                 # Отправка сообщения
                 send_telegram_message(tg_chat_id, message)

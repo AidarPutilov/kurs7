@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "django_celery_beat",
     "corsheaders",
+    "drf_yasg",
     "users",
     "main",
 ]
@@ -152,7 +153,8 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://read-and-write.example.com",  #  Замените на адрес вашего фронтенд-сервера
+    # Замените на адрес вашего фронтенд-сервера
+    "https://read-and-write.example.com",
     # и добавьте адрес бэкенд-сервера
 ]
 

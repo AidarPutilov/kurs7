@@ -10,8 +10,3 @@ def send_telegram_message(chat_id, text):
         "chat_id": chat_id,
     }
     requests.get(f"{TELEGRAM_URL}{TELEGRAM_TOKEN}/sendMessage", params=params)
-    # params = {
-    #     "text": text,
-    #     "chat_id": "1950061659",
-    # }
-    # requests.get(f"{TELEGRAM_URL}{TELEGRAM_TOKEN}/sendMessage", params=params)
