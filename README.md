@@ -1,33 +1,44 @@
 ## Курсовая работа 7
--
+- Добавлена модель привычек.
+- Реализованы эндпоинты.
+- Реализованы валидаторы.
+- Реализована пагинация для вывода списка привычек текущего пользователя.
+- Реализованы права доступа.
+- Настроены интеграцию с Телеграм и отложенная задача через Celery.
+- Настоен CORS.
+- Настрен вывод документации.
+- Добавлены тесты, покрытие составляет 83%.
 - Работа проверена с помощью Postman.
+- Результат проверки Flake8 равен 100%
 
 ### Основные приложения
+- Ubuntu 22.04.5 LTS
 - Python 3.10.12
 - Poetry 1.8.2
 - git 2.34.1
-- VSCode 1.95.2
+- VSCode 1.95.2 (Windows 11)
+- PostgreSQL 16.3
 
 ### Применённые пакеты
 - django
 - djangorestframework
 - djangorestframework-simplejwt
 - django-filter
-- pillow
+- django-celery-beat
+- django-cors-headers
 - psycopg2-binary
 - python-dotenv
-- coverage
-- drf-yasg
-- stripe
+- requests
 - celery
-- django-celery-beat
+- drf-yasg
+- coverage
 - redis
 - black
 
 ### Пользователи, создаваемые командой createusers:
-- admin@sky.pro - Администратор
-- mod@sky.pro - Модератор
-- user@sky.pro - Владелец всех записей БД
+- igor@sky.pro
+- ivan@sky.pro
+- irina@sky.pro
 
 Пароль: 123
 
@@ -45,7 +56,7 @@ cd kurs7
 
 #### Базовые настройки
 ```
-Ввести настройки django, сервера PostgreSQL, платёжной системы Stripe в файле .env.sample. Переименовать файл в .env. При параметре EMAIL_TEST=True рассылка писем не происходит, только сообщение в консоль.
+Ввести настройки django, сервера PostgreSQL, сервера Redis, ID бота Телеграм. Переименовать файл в .env.
 ```
 
 #### Создание базы данных
@@ -65,14 +76,9 @@ poetry install
 python3 manage.py migrate
 ```
 
-#### Добавление пользователей и группы Moders
+#### Добавление пользователей
 ```
 python3 manage.py createusers
-```
-
-#### Заполнение БД
-```
-python3 manage.py filldb
 ```
 
 #### Запуск проекта
@@ -96,27 +102,19 @@ http://127.0.0.1:8000/swagger/ - Swagger
 http://127.0.0.1:8000/redoc/ - Redoc
 ```
 
-### Запросы
+### Запросы User
 ```
-http://127.0.0.1:8000/course/ - Список курсов, запрос CREATE
-http://127.0.0.1:8000/course/<pk> - Запросы RETRIEVE, PUT, DELETE
-http://127.0.0.1:8000/course/lesson/ - Список уроков
-http://127.0.0.1:8000/course/lesson/create/ - Создание урока
-http://127.0.0.1:8000/course/lesson/<pk>/update/ - Редактирование урока
-http://127.0.0.1:8000/course/lesson/<pk>/delete/ - Удаление урока
-http://127.0.0.1:8000/users/payment/list/ - Список платежей
-http://127.0.0.1:8000/users/payment/create/ - Создание платежа
-POST: {"cost": 1000, "method": "cashless", "course": 1}
-http://127.0.0.1:8000/users/payment/list?course=<pk> - Фильтрация по курсу
-http://127.0.0.1:8000/users/payment/list?lesson=<pk> - Фильтрация по уроку
-http://127.0.0.1:8000/users/payment/list?method=cashless - Фильтрация по способу оплаты
-http://127.0.0.1:8000/users/payment/list?ordering=date - Сортировка по дате (-date - в обратном порядке)
 http://127.0.0.1:8000/users/register/ - Регистрация пользователя
-http://127.0.0.1:8000/users/login/ - Получение токена
+http://127.0.0.1:8000/users/login/ - Авторизация, получение токена
 http://127.0.0.1:8000/users/list/ - Список пользователей
 http://127.0.0.1:8000/users/view/<pk>/ - Просмотр пользователя
 http://127.0.0.1:8000/users/update/<pk>/ - Редактирование пользователя
 http://127.0.0.1:8000/users/delete/<pk>/ - Удаление пользователя
-http://127.0.0.1:8000/course/subscription/ - Добаление/удаление подписки
-POST: {"course": 1}
+```
+
+### Запросы Habit
+```
+http://127.0.0.1:8000/main/ - LIST, CREATE
+http://127.0.0.1:8000/main/<pk>/ - RETRIEVE, PUT, PATCH, DELETE
+http://127.0.0.1:8000/main/public/ - Список публичных записей
 ```
